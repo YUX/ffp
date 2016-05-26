@@ -1,2 +1,4 @@
 .Archive/*
 .DS_Store
+flask/app/venv
+*.pyc
