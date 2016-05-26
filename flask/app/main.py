@@ -41,16 +41,6 @@ def proxy(url):
             yield chunk
     return Response(generate(), headers = headers)
 
-@app.route("/googleapis/maps/<path:maps_args>")
-def gapis_maps(maps_args):
-    url = "https://maps.googleapis.com/maps/api/"+maps_args+"?"+request.query_string
-    print url
-    r = requests.get(url ,stream=True)
-    headers = r.raw.headers.items()
-    def generate():
-        for chunk in r.iter_content(CHUNK_SIZE):
-            yield chunk
-    return Response(generate(), headers = headers)
     
 @app.errorhandler(403)
 def forbidden(e):
