@@ -16,8 +16,6 @@ def qWhiteList(url):
         site = "sinaimg"
     elif re.match(r'p[0-9]\.music.126.net\/', url):
         site = "163music"
-    elif re.match(r'v[0-9]\.music.126.net\/', url):
-        site = "163mv"
     else:
          abort(403)
     return [site,postfix]
@@ -36,9 +34,6 @@ def proxy(url):
             headers[-2] = ("Content-Type","audio/mpeg; charset=UTF-8")
         else:
             pass
-    elif site == "163mv":
-        r = requests.get("http://"+url, headers={"Referer": "http://music.163.com/"}, stream=True)
-        headers = r.raw.headers.items()
     else:
         pass
     def generate():
