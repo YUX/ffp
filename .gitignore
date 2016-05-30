@@ -1,4 +1,6 @@
 .Archive/*
 .DS_Store
-flask/app/venv
+venv/*
 *.pyc
+*.sublime-project
+*.sublime-workspace
