@@ -1,5 +1,10 @@
 # gossl
-IT'S A PYTHON SSL PROXY  
+IT'S A PYTHON SSL PROXY
+
+## Update
+This domain https://gossl.daoapp.io/  is no longer working, it takes too much bandwidth. 
+
+This script works well as always, deploy it at your own server with dockerfile.
 
 ## Usage 用法
 http://ww1.sinaimg.cn/large/863bb56fgw1f3r5e627m9g20jg08cwej.gif ❌
