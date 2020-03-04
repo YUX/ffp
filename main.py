@@ -29,5 +29,9 @@ def favicon():
 def index():
     return redirect('https://github.com/YUX-IO/ffp', code=302)
 
+@app.errorhandler(500)
+def internal_server_rror(e):
+	return redirect('https://github.com/YUX-IO/ffp', code=302)
+
 if __name__ == '__main__':
     app.run()
