@@ -10,9 +10,13 @@ install:
 before_script:
   - pip install -r requirements.txt
   - pip install pytest
+  - pip install coverage
+  - pip install coveralls
 script:
   - docker ps | grep -q yuxio/ffp
   - pytest
+  - coverage run --source=. -m unittest discover
 after_success:
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
- - docker push yuxio/ffp
+  - coveralls
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push yuxio/ffp
