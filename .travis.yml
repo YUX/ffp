@@ -4,7 +4,6 @@ python:
 services: 
   - docker
 install: 
-  - docker pull yuxio/ffp
   - docker build -t yuxio/ffp .
   - docker run -d --name=ffp -p 127.0.0.1:502:80 --restart=always yuxio/ffp:latest
 before_script:
