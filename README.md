@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/YUX-IO/ffp.svg?branch=master)](https://travis-ci.com/YUX-IO/ffp)
+[![Coverage Status](https://coveralls.io/repos/github/YUX-IO/ffp/badge.svg?branch=master)](https://coveralls.io/github/YUX-IO/ffp?branch=master)
 ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?style=flat-square&colorB=5EAA37)
 ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg?style=flat-square) 
 
