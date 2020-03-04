@@ -13,3 +13,6 @@ before_script:
 script:
   - docker ps | grep -q yuxio/ffp
   - pytest
+after_success:
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ - docker push yuxio/ffp
