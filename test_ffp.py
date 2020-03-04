@@ -5,4 +5,4 @@ class TestClass(object):
     def test_home_page(self):
         rv = self.app.get('/https://raw.githubusercontent.com/YUX-IO/ffp/master/test')
         assert rv.status_code == 200
-        assert rv.data == 'ffp'
+        assert rv.data == b'ffp'
