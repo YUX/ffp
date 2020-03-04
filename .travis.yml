@@ -1,6 +1,7 @@
-language: python
-python:
-  - 3.7.6
-sudo: required
-before_install: sudo pip install -r requirements.txt
-script: python main.py
+services: 
+  - docker
+install: 
+  - docker build -t yuxio/ffp .
+  - docker run -d --name=ffp -p 127.0.0.1:502:80 --restart=always yuxio/ffp:latest
+script:
+  - docker ps | grep -q yuxio/ffp
