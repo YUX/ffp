@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/language-python-blue.svg)
+
 # ffp
 **yet another Flask File Proxy**
 
@@ -34,7 +36,7 @@ docker run -d --name=ffp \
    - Rewrite `https://github.com/YUX-IO/ffp/blob/master/README.md` to `https://your.domain.here/https://github.com/YUX-IO/ffp/blob/master/README.md`
    - Now you get the file passed through the proxy.
 
-2. **Rewritten Script Proxy**          --*please note `/r/` in the url*
+2. **Rewritten Script Proxy**          *please note `/r/` in the url*
    - Rewrite `https://github.com/YUX-IO/ffp/blob/master/README.md` to `https://your.domain.here/r/https://github.com/YUX-IO/ffp/blob/master/README.md`
    - This will replace all the URL in the script to `https://your.domain.here/URL`, which means you'd get all the resources passing through your proxy.
 
