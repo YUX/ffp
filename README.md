@@ -3,14 +3,13 @@
 ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg?style=flat-square) 
 ![](https://shields.beevelop.com/docker/image/layers/yuxio/ffp/latest.svg?style=flat-square)
 
-# [ffp](https://github.com/YUX-IO/ffp) **yet another Flask File Proxy** :whale:
-
+# [ffp](https://github.com/YUX-IO/ffp) yet another Flask File Proxy
 
 ### RECOMMENDED
 
 **make sure you have**
 
-- docker, `docker --version`
+- docker :whale: , `docker --version`
 - Domain name
 - ssl
 - Nginx (or anything you can point your domain to local port 502)
@@ -19,7 +18,7 @@
 
 1. install **ffp** via docker 
 
-```shell
+```bash
 
 docker run -d --name=ffp \
 
@@ -50,14 +49,15 @@ docker run -d --name=ffp \
 1. If you don't have a domain, use `docker run -d --name=ffp -p 80:80 yuxio/ffp:latest`, then rewrite `https://github.com/YUX-IO/ffp/blob/master/README.md` to `http://$IP/https://github.com/YUX-IO/ffp/blob/master/README.md`, it should work just fine. But you can't use **Rewritten Script Proxy**.
 2. If you don't want to use docker, clone this repository then run `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, choose the port you want. Rewrite `https://github.com/YUX-IO/ffp/blob/master/README.md` to `http://$IP:$PORT/https://github.com/YUX-IO/ffp/blob/master/README.md`.
 
-# ffp
-**使用Flask制作的文件代理**
+
+
+# ffp 使用Flask制作的文件代理
 
 ### 推荐食用方法
 
 **确保你有**
 
-- docker环境, 通过`docker --version`查看。
+- docker环境 :whale: , 通过`docker --version`查看。
 - 域名
 - ssl证书
 - Nginx，或者其他帮助你反代绑定域名的工具
@@ -66,7 +66,7 @@ docker run -d --name=ffp \
 
 1. 通过docker部署**ffp**
 
-```shell
+```bash
 
 docker run -d --name=ffp \
 
