@@ -9,13 +9,13 @@
 - docker, `docker --version`
 - Domain name
 - ssl
-- Nginx (or anything you can bind your domain to local port 502)
+- Nginx (or anything you can point your domain to local port 502)
 
 ### INSTALLATION
 
 1. install ffp via docker 
 
-\```shell
+```shell
 
 docker run -d --name=ffp \
 
@@ -23,7 +23,7 @@ docker run -d --name=ffp \
 
   yuxio/ffp:latest
 
-\```
+```
 
 2. Point your domain(or subdomain) to `127.0.0.1:502`
 
