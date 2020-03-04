@@ -1,1 +1,1 @@
-FROM yuxio/flask-python376
+FROM yuxio/flask-python376:slim
