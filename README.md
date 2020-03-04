@@ -1,8 +1,8 @@
-**# ffp**
+# ffp
 
-**## yet another Flask File Proxy**
+## yet another Flask File Proxy
 
-**### RECOMMENDED**
+### RECOMMENDED
 
 **make sure you have**
 
