@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/language-python-blue.svg) ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg)
+![](https://img.shields.io/badge/language-python-blue.svg?style=flat-square) ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?style=flat-square) ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg?style=flat-square)
 
 # ffp
 **yet another Flask File Proxy**
