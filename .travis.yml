@@ -12,6 +12,9 @@ install:
   - sudo pip3 install pytest
   - docker build -t yuxio/ffp .
   - docker run -d --name=ffp -p 127.0.0.1:502:80 --restart=always yuxio/ffp:latest
+  - docker pull yuxio/ffp
+  - pip3 list
+  - pip list
 script:
   - pytest
   - docker ps | grep -q yuxio/ffp
