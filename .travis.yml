@@ -1,7 +1,14 @@
+language: python
+python:
+  - 3.7.6
+sudo: required
 services: 
   - docker
 install: 
+  - sudo pip install -r requirements.txt
+  - sudo pip install pytest
   - docker build -t yuxio/ffp .
   - docker run -d --name=ffp -p 127.0.0.1:502:80 --restart=always yuxio/ffp:latest
 script:
+  - pytest
   - docker ps | grep -q yuxio/ffp
