@@ -3,4 +3,4 @@ python:
   - 3.7.6
 sudo: required
 before_install: sudo pip install -r requirements.txt
-script: main.py
+script: python main.py
