@@ -4,13 +4,13 @@
 ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?colorB=4AC41C)
 ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg) 
 
-# :neckbeard: **[ffp](https://github.com/YUX-IO/ffp)** yet another Flask File Proxy
+# [ffp](https://github.com/YUX-IO/ffp) *yet another Flask File Proxy*
 
-### RECOMMENDED
+### RECOMMENDED :neckbeard:
 
 **make sure you have**
 
-- docker :whale: , `docker --version`
+- docker, `docker --version`
 - Domain name
 - ssl
 - Nginx (or anything you can point your domain to local port 502)
@@ -20,15 +20,10 @@
 1. install **ffp** via docker 
 
 ```bash
-
 docker run -d --name=ffp \
-
   -p 127.0.0.1:502:80 \
-
   --restart=always \
-
   yuxio/ffp:latest
-
 ```
 
 2. Point your domain or subdomain to local `502` port. (reverse proxy)
@@ -58,7 +53,7 @@ docker run -d --name=ffp \
 
 **确保你有**
 
-- docker环境 :whale: , 通过`docker --version`查看。
+- docker环境, 通过`docker --version`查看。
 - 域名
 - ssl证书
 - Nginx，或者其他帮助你反代绑定域名的工具
@@ -68,16 +63,12 @@ docker run -d --name=ffp \
 1. 通过docker部署**ffp**
 
 ```bash
-
 docker run -d --name=ffp \
-
   -p 127.0.0.1:502:80 \
-
   --restart=always \
-
   yuxio/ffp:latest
-
 ```
+
 没有报错的话，此时**ffp**就部署成功了，监听本地的502端口。
 
 2. 将你的域名，或者子域名绑定到本地的502端口。

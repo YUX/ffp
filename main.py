@@ -4,14 +4,14 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 CHUNK_SIZE = 1024*1024
 mime = MimeTypes()
 
 
 @app.route('/<path:url>')
 def proxy(url):
-    r = requests.get(url, stream=True)
+    r = requests.get(url, stream=True,params=request.args)
     responseHeaders=r.raw.headers.items()
     if r.status_code != 200:
         abort(r.status_code)
@@ -19,11 +19,11 @@ def proxy(url):
     def generate():
         for chunk in r.iter_content(CHUNK_SIZE):
             yield chunk
-    return Response(generate(),headers = responseHeaders, mimetype=mime_type[0])
+    return Response(generate(), mimetype=mime_type[0])
 
 @app.route('/r/<path:url>')
 def replace(url):
-    r = requests.get(url)
+    r = requests.get(url,params=request.args)
     responseHeaders=r.raw.headers.items()
     if r.status_code != 200:
         abort(r.status_code)
@@ -32,7 +32,7 @@ def replace(url):
     host=requestHeaders["Host"]
     postRegex=re.sub(r"http","https://"+host+"/http",r.text)
 
-    return Response(postRegex,headers=responseHeaders, mimetype=mime_type[0])
+    return Response(postRegex, mimetype=mime_type[0])
 
 @app.route('/')
 def index():
