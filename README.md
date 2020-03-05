@@ -17,19 +17,19 @@ Let's say you want to use the Docker Install Script:
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
-but you have a "special network envoirment" that you may cannot connet to `https://get.docker.com` propelly. Then you may wanna try this:
+but you have a "special network environment" that you may cannot connect to `https://get.docker.com` proply. Then you may wanna try this:
 ```bash
 curl -fsSL https://ffp.yux.io/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
-so the script comes to you via the proxy now. But there is another problem you must have noticed already that there are a lot of other resouces from that script, such as `https://github.com/docker......`, `http://ftp.debian.org/......` and they happen to be all unreachble to you. So let's rewrite all urls to the proxy address.
+so the script comes to you via **ffp** now. But there is another problem you must have noticed already that there are a lot of other outer resources from that script, such as `https://github.com/docker......`, `http://ftp.debian.org/......` and they happen to be all unreachable to you. So let's rewrite all urls to the **ffp** address.
 ```bash
 curl -fsSL https://ffp.yux.io/r/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 
 ### :neckbeard:SELF-HOST (RECOMMENDED)
-Since there is no sla no garrantee for the domain `ffp.yux.io` to work constantly. I imagine this would take tremendous amount of bandwitch. So I recommend you to deploy **ffp** on your own server.
+Since there is no SLA no guarantee for the domain `ffp.yux.io` to work constantly. I imagine this would take tremendous amount of bandwidth. So I recommend you to deploy **ffp** on your own server.
 
 ### :pager:INSTALLATION
 
