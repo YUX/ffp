@@ -10,7 +10,7 @@
 
 
 ### :rocket:QUICK START
-**If you can see the little badge here --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)] The proxy is ON.**
+**If you can see the little badge here --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)]. The proxy is ON.**
 
 Let's say you want to use the Docker Install Script:
 ```bash
@@ -28,14 +28,8 @@ curl -fsSL https://ffp.yux.io/r/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 
-### :neckbeard:RECOMMENDED
-
-**make sure you have**
-
-- docker, `docker --version`
-- Domain name
-- ssl
-- Nginx (or anything you can point your domain to local port 502)
+### :neckbeard:SELF-HOST (RECOMMENDED)
+Since there is no sla no garrantee for the domain `ffp.yux.io` to work constantly. I imagine this would take tremendous amount of bandwitch. So I recommend you to deploy **ffp** on your own server.
 
 ### :pager:INSTALLATION
 
@@ -67,14 +61,14 @@ docker run -d --name=ffp \
 1. If you don't have a domain, use `docker run -d --name=ffp -p 80:80 yuxio/ffp:latest`, then rewrite `https://get.docker.com` to `http://$IP/https://get.docker.com`, it should work just fine. But you can't use **Rewritten Script Proxy**.
 2. If you don't want to use docker, clone this repository then run `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, choose the port you want. Rewrite `https://get.docker.com` to `http://$IP:$PORT/https://get.docker.com`.
 
-
+***
 
 # ffp 
 **使用Flask制作的文件代理**
 
 
 ### :rocket:原地开始
-**你要是能看见这有个小图标 --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)] 代理网站在线。**
+**你要是能看见这有个小图标 --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)], 代理网站在线。**
 
 比如你想用 Docker Install Script:
 ```bash
@@ -92,14 +86,9 @@ curl -fsSL https://ffp.yux.io/r/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 
-### :neckbeard:推荐食用方法
+### :neckbeard:建议自行部署
 
-**确保你有**
-
-- docker环境, 通过`docker --version`查看。
-- 域名
-- ssl证书
-- Nginx，或者其他帮助你反代绑定域名的工具
+不能保证`ffp.yux.io`一定能持续正常工作，建议使用docker自行部署。
 
 ### :pager:安装
 
