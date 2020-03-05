@@ -4,7 +4,7 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 CHUNK_SIZE = 1024*1024
 mime = MimeTypes()
 
