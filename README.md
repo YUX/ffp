@@ -111,7 +111,11 @@ docker run -d --name=ffp \
 
 1. **文件代理**
    - 把你想要获取的文件地址前加上你的域名，例如，将 `https://get.docker.com` 改成 `https://your.domain.here/https://get.docker.com`
-   - 这样这个`README.md`文件就会通过**ffp**代理，即时文件的原地址在你目前所处的网络环境下无法访问，也可以通过**ffp**正常查看。
+   - 这样这个脚本就会通过**ffp**代理，即时文件的原地址在你目前所处的网络环境下无法访问，也可以通过**ffp**正常查看。
+
+2. **重写外部链接**          *注意链接中的`/r/`*
+   - 将 `https://get.docker.com` 重写为 `https://your.domain.here/r/https://get.docker.com`
+   - 这样脚本中的外部链接被重写为通过**ffp**的链接。
   
 ### :squirrel:其他
 
