@@ -23,6 +23,10 @@ def proxy(url):
         responseHeaders.append(('Content-Length',dict(r.raw.headers.items())['Content-Length']))
     except:
         pass
+    try:
+        responseHeaders.append(('Content-Type',dict(r.raw.headers.items())['Content-Type']))
+    except:
+        pass
     return Response(generate(),headers=responseHeaders,mimetype=mime_type[0])
 
 @app.route('/r/<path:url>')
@@ -34,8 +38,8 @@ def replace(url):
     mime_type = mime.guess_type(url)
     requestHeaders=request.headers
     host=requestHeaders["Host"]
-    postRegex=re.sub(r"http","https://"+host+"/http",r.text)
-
+    pattern = re.compile(r'http(s:\/\/|:\/\/)')
+    postRegex=re.sub(pattern,"https://"+host+"/http"+r'\1', r.text)
     return Response(postRegex,headers=responseHeaders, mimetype=mime_type[0])
 
 @app.route('/')

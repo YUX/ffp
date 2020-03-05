@@ -4,7 +4,14 @@
 ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?colorB=4AC41C)
 ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg) 
 
+
 # [ffp](https://github.com/YUX-IO/ffp) *yet another Flask File Proxy*
+
+
+## QUICK START
+**If you can see the little badge here -> ![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)**
+**The proxy is ON.**
+Let's say you want to use the Docker Install Script `curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh`, but you have a special network envoirment that you cannot connet to `https://get.docker.com` propelly. Then you may wanna try this `curl -fsSL https://ffp.yux.io/https://get.docker.com -o get-docker.sh && sh get-docker.sh`, so the script comes to you via the proxy. But there is another problem you must have noticed that there are a lot of other resouces from that script, as `https://github.com/docker......`, `https://ffp.yux.io/http://ftp.debian.org/`…… and they happen to be all unreachble.
 
 ### RECOMMENDED :neckbeard:
 
