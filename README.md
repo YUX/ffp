@@ -4,7 +4,7 @@
 ![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?colorB=4AC41C)
 ![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg) 
 
-# [ffp](https://github.com/YUX-IO/ffp) yet another Flask File Proxy
+# :neckbeard: **[ffp](https://github.com/YUX-IO/ffp)** yet another Flask File Proxy
 
 ### RECOMMENDED
 
