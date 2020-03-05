@@ -17,12 +17,12 @@ Let's say you want to use the Docker Install Script:
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
-but you have a "special network environment" that you may cannot connect to `https://get.docker.com` proply. Then you may wanna try this:
+But you have a "special network environment" that you may cannot connect to `https://get.docker.com` properly. Then you may wanna try this:
 ```bash
 curl -fsSL https://ffp.yux.io/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
-so the script comes to you via **ffp** now. But there is another problem you must have noticed already that there are a lot of other outer resources from that script, such as `https://github.com/docker......`, `http://ftp.debian.org/......` and they happen to be all unreachable to you. So let's rewrite all urls to the **ffp** address.
+Then the script comes to you via **ffp** now. But there is another problem you must have noticed already that there are a lot of other outer resources from that script, such as `https://github.com/docker......`, `http://ftp.debian.org/......` and they happen to be all unreachable to you. So let's rewrite all urls to the **ffp** address.
 ```bash
 curl -fsSL https://ffp.yux.io/r/https://get.docker.com -o get-docker.sh
 sh get-docker.sh
@@ -50,7 +50,7 @@ docker run -d --name=ffp \
 
 1. **File Proxy**
    - Rewrite `https://get.docker.com` to `https://your.domain.here/https://get.docker.com`
-   - Now you get the file passed through the proxy.
+   - Now you get the file passed through the **ffp**.
 
 2. **Rewritten Script Proxy**          *please note `/r/` in the url*
    - Rewrite `https://get.docker.com` to `https://your.domain.here/r/https://get.docker.com`
@@ -59,7 +59,7 @@ docker run -d --name=ffp \
 ### :squirrel:OTHER
 
 1. If you don't have a domain, use `docker run -d --name=ffp -p 80:80 yuxio/ffp:latest`, then rewrite `https://get.docker.com` to `http://$IP/https://get.docker.com`, it should work just fine. But you can't use **Rewritten Script Proxy**.
-2. If you don't want to use docker, clone this repository then run `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, choose the port you want. Rewrite `https://get.docker.com` to `http://$IP:$PORT/https://get.docker.com`.
+2. If you don't want to use docker, clone this repository then run `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, choose the port you want. Rewrite `https://get.docker.com` to `http://$IP:$PORT/https://get.docker.com`. *you need a proper python-3.7.6 environment*
 
 ***
 
@@ -111,7 +111,7 @@ docker run -d --name=ffp \
 
 1. **文件代理**
    - 把你想要获取的文件地址前加上你的域名，例如，将 `https://get.docker.com` 改成 `https://your.domain.here/https://get.docker.com`
-   - 这样这个脚本就会通过**ffp**代理，即时文件的原地址在你目前所处的网络环境下无法访问，也可以通过**ffp**正常查看。
+   - 这样这个脚本就会通过**ffp**代理，即时文件的原地址在你目前所处的网络环境下无法访问，也可以通过**ffp**正常访问。
 
 2. **重写外部链接**          *注意链接中的`/r/`*
    - 将 `https://get.docker.com` 重写为 `https://your.domain.here/r/https://get.docker.com`
@@ -120,4 +120,4 @@ docker run -d --name=ffp \
 ### :squirrel:其他
 
 1. 如果你没有域名，可以这样部署 `docker run -d --name=ffp -p 80:80 yuxio/ffp:latest`, 然后把你想要访问的链接，例如 `https://get.docker.com` 改成 `http://$IP/https://get.docker.com`, 这样就可以了，但是无法重写脚本中的外部链接。
-2. 如果不想使用docker，也可以直接运行，**ffp**目前仅在python-3.7.6版本中测试通过。 `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, 选择端口，一般使用80端口。 将 `https://get.docker.com` 重写为 `http://$IP:$PORT/https://get.docker.com`.
+2. 如果不想使用docker，也可以直接运行，**ffp**目前仅在python-3.7.6版本中测试通过。 `pip install -r requirements.txt && python main.py --host=0.0.0.0 --port=$PORT`, 选择端口，一般使用80端口。 将 `https://get.docker.com` 重写为 `http://$IP:$PORT/https://get.docker.com`。
