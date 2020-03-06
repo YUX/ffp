@@ -4,42 +4,58 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = False
-CHUNK_SIZE = 1024*1024
+app.debug = True
 mime = MimeTypes()
-
+CHUNK_SIZE = 2*1024*1024
 
 @app.route('/<path:url>')
 def proxy(url):
-    r = requests.get(url, stream=True,params=request.args)
+    requestHeaders=dict(request.headers)
+    hostPattern=re.compile(r"\/\/(.*?)\/")
+    requestHost=hostPattern.findall(url)[0]
+    requestHeaders['Host']=requestHost
+    try:
+        requestHeaders.pop('If-None-Match')
+        requestHeaders.pop('If-Modified-Since')
+    except:
+        pass
+    r = requests.get(url, stream=True,params=request.args,headers=requestHeaders)
     if r.status_code != 200:
         abort(r.status_code)
     mime_type = mime.guess_type(url)
     def generate():
         for chunk in r.iter_content(CHUNK_SIZE):
             yield chunk
-    responseHeaders=[]
+    responseHeaders=dict(r.headers)
     try:
-        responseHeaders.append(('Content-Length',dict(r.raw.headers.items())['Content-Length']))
-    except:
-        pass
-    try:
-        responseHeaders.append(('Content-Type',dict(r.raw.headers.items())['Content-Type']))
+        responseHeaders.pop('Content-Encoding')
     except:
         pass
     return Response(generate(),headers=responseHeaders,mimetype=mime_type[0])
 
 @app.route('/r/<path:url>')
 def replace(url):
-    r = requests.get(url,params=request.args)
-    responseHeaders=r.raw.headers.items()
+    requestHeaders=dict(request.headers)
+    hostPattern=re.compile(r"\/\/(.*?)\/")
+    requestHost=hostPattern.findall(url)[0]
+    requestHeaders['Host']=requestHost
+    try:
+        requestHeaders.pop('If-None-Match')
+        requestHeaders.pop('If-Modified-Since')
+    except:
+        pass
+    r = requests.get(url,params=request.args,headers=requestHeaders)
     if r.status_code != 200:
         abort(r.status_code)
     mime_type = mime.guess_type(url)
-    requestHeaders=request.headers
-    host=requestHeaders["Host"]
+    localHost=request.headers["Host"]
     pattern = re.compile(r'http(s:\/\/|:\/\/)')
-    postRegex=re.sub(pattern,"https://"+host+"/http"+r'\1', r.text)
+    postRegex=re.sub(pattern,"https://"+localHost+"/http"+r'\1', r.text)
+    responseHeaders=dict(r.headers)
+    try:
+        responseHeaders.pop('Content-Encoding')
+    except:
+        pass
     return Response(postRegex,headers=responseHeaders, mimetype=mime_type[0])
 
 @app.route('/')
