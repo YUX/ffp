@@ -4,3 +4,7 @@ venv/*
 *.pyc
 *.sublime-project
 *.sublime-workspace
+__pycache__/*
+.coverage
+.pytest_cache/*
+.vscode/*
