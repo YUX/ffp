@@ -4,19 +4,26 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 mime = MimeTypes()
 CHUNK_SIZE = 2*1024*1024
 
 @app.route('/<path:url>')
 def proxy(url):
     requestHeaders=dict(request.headers)
-    hostPattern=re.compile(r"\/\/(.*?)\/")
-    requestHost=hostPattern.findall(url)[0]
-    requestHeaders['Host']=requestHost
+    #hostPattern=re.compile(r"\/\/(.*?)\/")
+    #requestHost=hostPattern.findall(url)[0]
+    #requestHeaders['Host']=requestHost
     try:
         requestHeaders.pop('If-None-Match')
+    except:
+        pass
+    try:
         requestHeaders.pop('If-Modified-Since')
+    except:
+        pass
+    try:
+        requestHeaders.pop('Host')
     except:
         pass
     r = requests.get(url, stream=True,params=request.args,headers=requestHeaders)
@@ -37,12 +44,19 @@ def proxy(url):
 @app.route('/r/<path:url>')
 def replace(url):
     requestHeaders=dict(request.headers)
-    hostPattern=re.compile(r"\/\/(.*?)\/")
-    requestHost=hostPattern.findall(url)[0]
-    requestHeaders['Host']=requestHost
+    #hostPattern=re.compile(r"\/\/(.*?)\/")
+    #requestHost=hostPattern.findall(url)[0]
+    #requestHeaders['Host']=requestHost
     try:
         requestHeaders.pop('If-None-Match')
+    except:
+        pass
+    try:
         requestHeaders.pop('If-Modified-Since')
+    except:
+        pass
+    try:
+        requestHeaders.pop('Host')
     except:
         pass
     r = requests.get(url,params=request.args,headers=requestHeaders)
