@@ -1,10 +1,6 @@
-.Archive/*
 .DS_Store
-venv/*
 *.pyc
-*.sublime-project
-*.sublime-workspace
-__pycache__/*
+/__pycache__/
+/.pytest_cache/
+/.vscode/
 .coverage
-.pytest_cache/*
-.vscode/*
