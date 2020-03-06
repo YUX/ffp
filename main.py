@@ -35,10 +35,6 @@ def proxy(url):
             yield chunk
     responseHeaders=dict(r.headers)
     try:
-        responseHeaders.pop('Content-Encoding')
-    except:
-        pass
-    try:
         responseHeaders.pop('Transfer-Encoding')
     except:
         pass
