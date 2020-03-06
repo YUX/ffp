@@ -4,7 +4,7 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 mime = MimeTypes()
 CHUNK_SIZE = 2*1024*1024
 
@@ -85,11 +85,11 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 @app.errorhandler(500)
-def internal_server_rror(e):
+def internal_server_error(e):
 	return redirect('https://github.com/YUX-IO/ffp', code=302)
 
 @app.errorhandler(400)
-def internal_server_rror(e):
+def bad_equest(e):
 	return redirect('https://github.com/YUX-IO/ffp', code=302)
 
 if __name__ == '__main__':
