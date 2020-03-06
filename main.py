@@ -4,7 +4,7 @@ from mimetypes import MimeTypes
 import requests, os, re
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 mime = MimeTypes()
 CHUNK_SIZE = 2*1024*1024
 
@@ -29,6 +29,7 @@ def proxy(url):
     responseHeaders=dict(r.headers)
     try:
         responseHeaders.pop('Content-Encoding')
+        responseHeaders.pop('Transfer-Encoding')
     except:
         pass
     return Response(generate(),headers=responseHeaders,mimetype=mime_type[0])
