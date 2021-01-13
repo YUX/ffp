@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/YUX-IO/ffp.svg?branch=master)](https://travis-ci.com/YUX-IO/ffp)
-[![Coverage Status](https://coveralls.io/repos/github/YUX-IO/ffp/badge.svg?branch=master)](https://coveralls.io/github/YUX-IO/ffp?branch=master)
 [![codebeat badge](https://codebeat.co/badges/52718a21-307b-4f31-a3be-93fa49df77ec)](https://codebeat.co/projects/github-com-yux-io-ffp-master)
 [![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?colorB=4AC41C)](https://hub.docker.com/r/yuxio/ffp)
 [![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg) ](https://hub.docker.com/r/yuxio/ffp)
