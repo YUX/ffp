@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.com/YUX-IO/ffp.svg?branch=master)](https://travis-ci.com/YUX-IO/ffp)
+[![Build Status](https://travis-ci.com/YUX/ffp.svg?branch=master)](https://travis-ci.com/YUX-IO/ffp)
 [![codebeat badge](https://codebeat.co/badges/52718a21-307b-4f31-a3be-93fa49df77ec)](https://codebeat.co/projects/github-com-yux-io-ffp-master)
 [![](https://img.shields.io/docker/pulls/yuxio/ffp.svg?colorB=4AC41C)](https://hub.docker.com/r/yuxio/ffp)
 [![](https://shields.beevelop.com/docker/image/image-size/yuxio/ffp/latest.svg) ](https://hub.docker.com/r/yuxio/ffp)
 
 # ffp
 
-**yet another Flask File Proxy**
+**yet another Flask File Proxy** 
 
 ### :rocket:QUICK START
 
-**If you can see the little badge here
---> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)]. The proxy is ON.**
-This badge is *not on* due to regulation. Please check the **SELF-HOST** part.
+~~If you can see the little badge here --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)]. The proxy is ON.~~
+
+This badge is not on due to regulation. Please check the **SELF-HOST** part.
 
 Let's say you want to use the Docker Install Script:
 
@@ -20,8 +20,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 
-But due to the *special network environment* that you may have encountered, that you cannot communicate with
-`https://get.docker.com` properly. Then you should try this instead:
+But due to the *special network environment* that you may have encountered, that you cannot communicate with `https://get.docker.com` properly. Then you should try this instead:
 
 ```bash
 curl -fsSL https://ffp.yux.io/https://get.docker.com -o get-docker.sh
@@ -86,7 +85,8 @@ docker run -d --name=ffp \
 
 ### :rocket:原地开始
 
-**你要是能看见这有个小图标 --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)], 代理网站(ffp.yux.io)在线。**
+~~你要是能看见这有个小图标 --> [![](https://ffp.yux.io/https://img.shields.io/badge/ffp.yux.io-%E2%9C%94-green.svg)], 代理网站(ffp.yux.io)在线。~~
+
 **ffp.yux.io 已下线，请自行部署😂**
 
 比如你想用 Docker Install Script:
