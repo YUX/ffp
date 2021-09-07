@@ -30,14 +30,15 @@ def proxy(url):
         requestHeaders.pop('Host')
     except:
         pass
-    r = requests.get(url, stream=True, params=request.args, headers=requestHeaders)
+    r = requests.get(url, stream=True, params=request.args,
+                     headers=requestHeaders)
     if r.status_code != 200:
         abort(r.status_code)
     mime_type = mime.guess_type(url)
 
     def generate():
         for chunk in r.iter_content(CHUNK_SIZE):
-            yield chunk
+            yield from chunk
 
     responseHeaders = dict(r.headers)
     try:
@@ -71,7 +72,8 @@ def replace(url):
     mime_type = mime.guess_type(url)
     localHost = request.headers["Host"]
     pattern = re.compile(r'http(s:\/\/|:\/\/)')
-    postRegex = re.sub(pattern, "https://" + localHost + "/http" + r'\1', r.text)
+    postRegex = re.sub(pattern, "https://" + localHost +
+                       "/http" + r'\1', r.text)
     responseHeaders = dict(r.headers)
     try:
         responseHeaders.pop('Content-Encoding')
